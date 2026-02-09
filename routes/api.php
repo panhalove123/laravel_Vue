@@ -102,4 +102,29 @@ Route::middleware('auth:sanctum')->group(function () {
         \App\Http\Controllers\PermissionController::class,
         'destroy',
     ])->middleware('permission:permissions-all|permissions-delete');
+
+    /**
+     * ------------------------------------------------------------------------
+     * products routes
+     * ------------------------------------------------------------------------
+     */
+    Route::get('products', [
+        \App\Http\Controllers\ProductController::class,
+        'index',
+    ])->middleware('permission:products-all|products-view');
+
+    Route::post('products', [
+        \App\Http\Controllers\ProductController::class,
+        'store',
+    ])->middleware('permission:products-all|products-create');
+
+    Route::patch('products/{productId}', [
+        \App\Http\Controllers\ProductController::class,
+        'update',
+    ])->middleware('permission:products-all|products-edit');
+
+    Route::delete('products/{productId}', [
+        \App\Http\Controllers\ProductController::class,
+        'destroy',
+    ])->middleware('permission:products-all|products-delete');
 });

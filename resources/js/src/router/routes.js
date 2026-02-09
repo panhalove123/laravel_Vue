@@ -38,4 +38,14 @@ export default [
             permissions: ['permissions-all', 'permissions-view'],
         },
     },
+
+    {
+        path: '/products',
+        name: 'products',
+        component: () => import('../pages/Products.vue'),
+        meta: {
+            layout: 'dashboard',
+            permissions: ['products-all', 'products-view'],
+        },
+    },
 ];

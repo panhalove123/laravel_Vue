@@ -100,6 +100,20 @@ const onLogout = async () => {
                         </template>
                     </RouterLink>
 
+                    <RouterLink :to="{ name: 'products' }">
+                        <template v-slot="{ isActive }">
+                            <span
+                                class="lg:text-lg font-bold"
+                                :class="[
+                                    isActive
+                                        ? 'text-active'
+                                        : 'hover:text-active-hover',
+                                ]"
+                                >Products</span
+                            >
+                        </template>
+                    </RouterLink>
+
                     <span
                         class="lg:text-lg font-bold hover:text-active-hover cursor-pointer text-red-200"
                         @click="onLogout"
